@@ -60,16 +60,6 @@ function menteeLogin() {
 export default function App() {
   return (
     <div className="App">
-      <Navbar collapseOnSelect bg="light" expand="md" className="mb-3">
-          <Navbar.Brand className="font-weight-bold text-muted">
-            NAVBAR
-          </Navbar.Brand>
-        <Navbar.Collapse className="justify-content-end">
-          <LinkContainer to="/NotFound">
-            <Nav.Link> THIS IS A LINK</Nav.Link>
-          </LinkContainer>
-        </Navbar.Collapse>
-      </Navbar>
       <header className="App-header">
         <img src={mentorPic} className="App-logo" alt="logo" />
         <p>
@@ -81,7 +71,7 @@ export default function App() {
         <button onClick={menteeLogin} className="btn">I'm a mentee!</button>
       </header>
       <Navbar.Collapse className="justify-content-end">
-      <LinkContainer to="./NotFound">
+      <LinkContainer to="/NotFound">
           <Nav.Link>NOT FOUND</Nav.Link>
       </LinkContainer>
       </Navbar.Collapse>
