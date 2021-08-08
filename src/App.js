@@ -32,9 +32,6 @@ function App() {
         <p>
           The best way to connect with mentors. See yourself in your dream job today! 
         </p>
-        <li>
-              <Link to="/">Home</Link>
-            </li>
         <a
           className="App-link"
           href="https://reactjs.org"
