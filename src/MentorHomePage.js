@@ -10,14 +10,17 @@ function MentorHomePage() {
         EXAMPLE MENTEE 1
         </button>
         </Link>
+        <p></p>
         <Link to="/mentorMenteeDetails"><button className="btn">
         EXAMPLE MENTEE 2
         </button>
         </Link>
+        <p></p>
         <Link to="/mentorMenteeDetails"><button className="btn">
         EXAMPLE MENTEE 3
         </button>
         </Link>
+        <p></p>
         <Link to="/mentorMenteeDetails"><button className="btn">
         EXAMPLE MENTEE 4
         </button>

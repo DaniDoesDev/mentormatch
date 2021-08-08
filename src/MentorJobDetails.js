@@ -7,7 +7,7 @@ function MentorJobDetails() {
         <div>
         <p>This is the mentor job details page where they input their job field and company.</p>
         <Link to="/mentorHomePage"><button className="btn">
-        Click to submit job details
+        Submit job details
         </button>
         </Link>
         </div>

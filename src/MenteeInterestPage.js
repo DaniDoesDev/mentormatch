@@ -7,7 +7,7 @@ function MenteeInterestPage() {
         <div>
         <p>This is the mentee interest page where they will enter their potential job interests.</p>
         <Link to="/menteeHomePage"><button className="btn">
-        Click to submit job interests
+        Submit job interests
         </button>
         </Link>
         </div>
