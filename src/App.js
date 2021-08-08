@@ -1,24 +1,9 @@
-import logo from './logo.svg';
 import mentorPic from './mentorpic.png';
 import './App.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import OAuth2Login from 'react-simple-oauth2-login';
-import NotFound from './NotFound';
-import { LinkContainer } from 'react-router-bootstrap';
-import { Container } from "@material-ui/core";
-import Button from "@material-ui/core/Button";
-import Routes from "./Routes"
-import Nav from "react-bootstrap/Nav";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Navbar from "react-bootstrap/Navbar";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const onSuccessMentor = response => console.log(response);
 const onFailureMentor = response => console.error(response);

@@ -1,10 +1,5 @@
 import React from "react";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function MenteeInterestPage() {
     
@@ -12,7 +7,7 @@ function MenteeInterestPage() {
         <div>
         <p>This is the mentee interest page where they will enter their potential job interests.</p>
         <Link to="/menteeHomePage"><button className="btn">
-        Click to submit job interets
+        Click to submit job interests
         </button>
         </Link>
         </div>
