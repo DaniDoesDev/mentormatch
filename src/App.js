@@ -10,19 +10,37 @@ import {
   Link
 } from "react-router-dom";
 
-const onSuccess = response => console.log(response);
-const onFailure = response => console.error(response);
+const onSuccessMentor = response => console.log(response);
+const onFailureMentor = response => console.error(response);
 
-ReactDOM.render(
+const onSuccessMentee = response => console.log(response);
+const onFailureMentee = response => console.error(response);
+
+function mentorLogin() {
+  ReactDOM.render(
   <OAuth2Login
     authorizationUrl="https://accounts.spotify.com/authorize"
     responseType="token"
     clientId="9822046hvr4lnhi7g07grihpefahy5jb"
     redirectUri="http://localhost:3000/oauth-callback"
-    onSuccess={onSuccess}
-    onFailure={onFailure}/>,
+    onSuccess={onSuccessMentor}
+    onFailure={onFailureMentor}/>,
   document.getElementById('root')
-);
+  );
+}
+
+function menteeLogin() {
+  ReactDOM.render(
+  <OAuth2Login
+    authorizationUrl="https://accounts.spotify.com/authorize"
+    responseType="token"
+    clientId="9822046hvr4lnhi7g07grihpefahy5jb"
+    redirectUri="http://localhost:3000/oauth-callback"
+    onSuccess={onSuccessMentee}
+    onFailure={onFailureMentee}/>,
+  document.getElementById('root')
+  );
+}
 
 function App() {
   return (
@@ -32,29 +50,10 @@ function App() {
         <p>
           The best way to connect with mentors. See yourself in your dream job today! 
         </p>
-  <OAuth2Login
-    authorizationUrl="https://accounts.spotify.com/authorize"
-    responseType="token"
-    clientId="9822046hvr4lnhi7g07grihpefahy5jb"
-    redirectUri="http://localhost:3000/oauth-callback"
-    onSuccess={onSuccess}
-    onFailure={onFailure}/>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          I'm a mentor!
-        </a>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          I'm a mentee!
-        </a>
+        <p></p>
+        <button onClick={mentorLogin} className="btn">I'm a mentor!</button>
+        <p></p>
+        <button onClick={menteeLogin} className="btn">I'm a mentee!</button>
       </header>
     </div>
   );
