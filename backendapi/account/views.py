@@ -35,7 +35,7 @@ class ListMentee(viewsets.ModelViewSet):
                     temps = Mentee.objects.filter(interested_company=m.company)
                     max_num = m.initial_num_mentee
                     if not max_num:
-                      max_num = 5
+                      max_num = 1
                     num = 0
                     for t in temps:
                         if not t.mentor_id:

@@ -8,7 +8,7 @@ class Mentor(models.Model):
     initial_num_mentee = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
-        return self.first_name
+        return self.name
 
 
 class Mentee(models.Model):
@@ -19,5 +19,5 @@ class Mentee(models.Model):
     mentor_id = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
-        return self.first_name
+        return self.name
 

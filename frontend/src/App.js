@@ -40,17 +40,26 @@ function mentorLogin({code}) {
     .then(res => res.json())
     .then((data) => { // this is the user object returned by github's api
       user = data;    // set global user 
-    });
-
-    // make get or post requests here to do stuff in db (store user info.)
-    // fetch('http://127.0.0.1:8000/api/mentor/', {
-    //   method = 'POST',
-      
-    // });
-    // console.log(user.name);
+      return data
+    })
+    .then((data) => {// make get or post requests here to do stuff in db (store user info.)
+    const userData = {
+      name: data.user,
+      email: data.email,
+      company: data.company
+    };
+    fetch('http://127.0.0.1:8000/api/mentor/', {
+      method: 'POST',
+      body: JSON.stringify(userData),
+      headers: {
+        'content-type': 'application/json',
+      },
+      });
+    }
+    );
 
     // go to mentor home page
-    return window.location.href="http://localhost:3000/mentorHomePage";
+    // return window.location.href="http://localhost:3000/mentorHomePage";
 }
 
 function menteeLogin({code}) {
@@ -78,18 +87,25 @@ function menteeLogin({code}) {
     .then(res => res.json())
     .then((data) => { // this is the user object returned by github's api
       user = data;    // set global user 
-    });
-
-    console.log(user);
-    // REMOVE ANY CONSOLE.LOG statements AFTER DEBUGGING IS OVER
-    // --> (it makes you reload the page again to go the next page instead)
-
-    // make get or post requests here to do stuff in db (store user info.)
-
-    // console.log(user.name);
+    })
+    .then((data) => {// make get or post requests here to do stuff in db (store user info.)
+      const userData = {
+        name: data.user,
+        email: data.email,
+        interested_company: data.company
+      };
+      fetch('http://127.0.0.1:8000/api/mentee/', {
+        method: 'POST',
+        body: JSON.stringify(userData),
+        headers: {
+          'content-type': 'application/json',
+        },
+        });
+      }
+    );
     
     // go to mentee home page
-    // return window.location.href="http://localhost:3000/menteeHomePage";
+    return window.location.href="http://localhost:3000/menteeHomePage";
 }
 
 export default function App() {
@@ -108,8 +124,8 @@ export default function App() {
     responseType="code"
     scope='read:user'
     buttonText="Sign up to be a mentor!"
-    clientId=
-    clientSecret=
+    clientId='16d350e690b51e39d0dd'
+    clientSecret='24ecd4defbbb37e89904c714e91ff2bc3f636990'
     redirectUri='http://localhost:3000/'
     onSuccess={mentorLogin}
     onFailure={onFailureMentor}/>
@@ -121,8 +137,8 @@ export default function App() {
     responseType="code"
     scope='read:user'
     buttonText="Sign up to be a mentee!"
-    clientId=
-    clientSecret=
+    clientId='16d350e690b51e39d0dd'
+    clientSecret='24ecd4defbbb37e89904c714e91ff2bc3f636990'
     redirectUri='http://localhost:3000/'
     onSuccess={menteeLogin}
     onFailure={onFailureMentor}/>
