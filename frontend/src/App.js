@@ -43,7 +43,10 @@ function mentorLogin({code}) {
     });
 
     // make get or post requests here to do stuff in db (store user info.)
-
+    // fetch('http://127.0.0.1:8000/api/mentor/', {
+    //   method = 'POST',
+      
+    // });
     // console.log(user.name);
 
     // go to mentor home page
@@ -77,6 +80,7 @@ function menteeLogin({code}) {
       user = data;    // set global user 
     });
 
+    console.log(user);
     // REMOVE ANY CONSOLE.LOG statements AFTER DEBUGGING IS OVER
     // --> (it makes you reload the page again to go the next page instead)
 
@@ -85,7 +89,7 @@ function menteeLogin({code}) {
     // console.log(user.name);
     
     // go to mentee home page
-    return window.location.href="http://localhost:3000/menteeHomePage";
+    // return window.location.href="http://localhost:3000/menteeHomePage";
 }
 
 export default function App() {
