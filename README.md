@@ -4,7 +4,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+First, install packages inside `server` and `frontend` folders:
+
+### `npm install`
+
+Move the `.env` file from Slack to inside the `server` directory. Then change `clientId` and `clientSecret` inside `App.js` from the `frontend` directory (Remember to remove these 2 secrets before committing anything to Github!!!)
+
+In the project directory (in each of server and frontend folders), you can run:
 
 ### `npm start`
 
