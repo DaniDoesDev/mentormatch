@@ -57,8 +57,8 @@ function App() {
     authorizationUrl='https://github.com/login/oauth/authorize'
     responseType="code"
     scope='read:user'
-    clientId=
-    clientSecret=
+    clientId='16d350e690b51e39d0dd'
+    clientSecret= '24ecd4defbbb37e89904c714e91ff2bc3f636990'
     redirectUri='http://localhost:3000/'
     onSuccess={onSuccess}
     onFailure={onFailure}/>
