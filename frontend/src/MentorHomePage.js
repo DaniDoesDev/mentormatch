@@ -4,13 +4,13 @@ import './MentorHomePage.css';
 import axios from 'axios';
 
 var person = null;
+var name = "blah"; // need to get this
 
     export default class MentorHomePage extends React.Component {
         state = {
             persons: []
         }
         
-        var name = "blah"; // need to get this
         componentDidMount() {
             axios.get('http://127.0.0.1:8000/api/menteematch/' + name)
             .then(res => {
