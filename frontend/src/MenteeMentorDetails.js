@@ -26,16 +26,3 @@ export default class MentorMenteeDetails extends React.Component {
             )
         }
     }
-
-
-// function MenteeMentorDetails() {
-    
-//     return (
-//         <div className="MenteeMentorDetails">
-//         <p>This is the mentee page where mentees can see the details of their mentor (name, email).</p>
-//         </div>
-//         );
-        
-//     }
-    
-//     export default MenteeMentorDetails;

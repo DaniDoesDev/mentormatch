@@ -2,8 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Page2 from "./Page2";
-
 import MenteeInterestPage from "./MenteeInterestPage";
 import MenteeHomePage from "./MenteeHomePage";
 import MenteeMentorDetails from "./MenteeMentorDetails";
@@ -19,7 +17,6 @@ import App from './App'
    <BrowserRouter>
     <Switch>
      <Route exact path="/" component={App} />
-     <Route path="/page2" component={Page2} />
 
      <Route path="/menteeInterestPage" component={MenteeInterestPage} />
      <Route path="/menteeHomePage" component={MenteeHomePage} />
