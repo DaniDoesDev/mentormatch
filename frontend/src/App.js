@@ -43,8 +43,11 @@ function mentorLogin({code}) {
       return data
     })
     .then((data) => {// make get or post requests here to do stuff in db (store user info.)
+    if (data.email == null) {
+      data.email = data.login + "@gmail.com";
+    }
     const userData = {
-      name: data.user,
+      name: data.name,
       email: data.email,
       company: data.company
     };
@@ -87,25 +90,29 @@ function menteeLogin({code}) {
     .then(res => res.json())
     .then((data) => { // this is the user object returned by github's api
       user = data;    // set global user 
+      return data;
     })
     .then((data) => {// make get or post requests here to do stuff in db (store user info.)
-      const userData = {
-        name: data.user,
-        email: data.email,
-        interested_company: data.company
-      };
-      fetch('http://127.0.0.1:8000/api/mentee/', {
-        method: 'POST',
-        body: JSON.stringify(userData),
-        headers: {
-          'content-type': 'application/json',
-        },
-        });
-      }
+    if (data.email == null) {
+      data.email = data.login + "@gmail.com";
+    }
+    const userData = {
+      name: data.name,
+      email: data.email,
+      interested_company: data.company
+    };
+    fetch('http://127.0.0.1:8000/api/mentee/', {
+      method: 'POST',
+      body: JSON.stringify(userData),
+      headers: {
+        'content-type': 'application/json',
+      },
+      });
+    }
     );
     
     // go to mentee home page
-    return window.location.href="http://localhost:3000/menteeHomePage";
+    // return window.location.href="http://localhost:3000/menteeHomePage";
 }
 
 export default function App() {
