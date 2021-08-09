@@ -15,7 +15,7 @@ const onFailure = response => console.error(response);
 
 var user = null;
 
-function mentorSignUp({code}) {
+function mentorLogin({code}) {
   // Uses authorization code to make a POST request to get an access token,
   // which then is exchanged for user info. from the github api
     fetch("http://localhost:5000/github/token", {
@@ -50,10 +50,10 @@ function mentorSignUp({code}) {
     // console.log(user.name);
 
     // go to mentor home page
-    return window.location.href="http://localhost:3000/mentorJobDetails";
+    return window.location.href="http://localhost:3000/mentorHomePage";
 }
 
-function mentorLogin({code}) {
+function mentorSignUp({code}) {
   // Uses authorization code to make a POST request to get an access token,
   // which then is exchanged for user info. from the github api
     fetch("http://localhost:5000/github/token", {
@@ -96,15 +96,16 @@ function mentorLogin({code}) {
         'content-type': 'application/json',
       },
       });
+    
+    // go to mentor job details page
+    return window.location.href="http://localhost:3000/mentorJobDetails/";
     }
     );
 
-    // go to mentor home page
-    return window.location.href="http://localhost:3000/mentorHomePage/";
 }
 
 
-function menteeSignUp({code}) {
+function menteeLogin({code}) {
   // Uses authorization code to make a POST request to get an access token,
   // which then is exchanged for user info. from the github api
     fetch("http://localhost:5000/github/token", {
@@ -131,19 +132,12 @@ function menteeSignUp({code}) {
       user = data;    // set global user 
     });
 
-    console.log(user);
-    // REMOVE ANY CONSOLE.LOG statements AFTER DEBUGGING IS OVER
-    // --> (it makes you reload the page again to go the next page instead)
 
-    // make get or post requests here to do stuff in db (store user info.)
-
-    // console.log(user.name);
-    
     // go to mentee home page
-    return window.location.href="http://localhost:3000/menteeInterestPage";
+    return window.location.href="http://localhost:3000/menteeHomePage";
 }
 
-function menteeLogin({code}) {
+function menteeSignUp({code}) {
   // Uses authorization code to make a POST request to get an access token,
   // which then is exchanged for user info. from the github api
     fetch("http://localhost:5000/github/token", {
@@ -186,11 +180,10 @@ function menteeLogin({code}) {
         'content-type': 'application/json',
       },
       });
+    // go to mentee interest page
+    return window.location.href="http://localhost:3000/menteeInterestPage";
     }
     );
-    
-    // go to mentee home page
-    return window.location.href="http://localhost:3000/menteeHomePage";
 }
 
 
