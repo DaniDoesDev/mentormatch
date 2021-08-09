@@ -40,7 +40,8 @@ import axios from 'axios';
         }
         
         componentDidMount() {
-            axios.get(`https://jsonplaceholder.typicode.com/users`)
+            // axios.get(`https://jsonplaceholder.typicode.com/users`)
+            axios.get('http://127.0.0.1:8000/api/mentee/')
             .then(res => {
                 const persons = res.data;
                 this.setState({ persons });
