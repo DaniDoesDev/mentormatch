@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+0. Make sure React and Node have been installed in the environment.
+
 1. First, install packages inside `server` and `frontend` folders:
 
 ### `npm install`
