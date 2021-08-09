@@ -12,7 +12,6 @@ app.use(cors({
 }));
 
 app.post('/github/token', (req, res) => {
-    console.log("called server /github/token");
     const { code } = req.body;
     const { tokenUrl, clientId, clientSecret, redirectUri } = oauth;
     // GitHub wants everything in an url-encoded body
@@ -29,7 +28,6 @@ app.post('/github/token', (req, res) => {
       .then((data) => {
         res.json(data);
         const token = data.access_token;
-        console.log("token =", token);
       })
       .catch((err) => {
         console.error('Error while requesting a token', err.response.data);
