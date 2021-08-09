@@ -100,7 +100,7 @@ function mentorLogin({code}) {
     );
 
     // go to mentor home page
-    return window.location.href="http://localhost:3000/mentorHomePage";
+    return window.location.href="http://localhost:3000/mentorHomePage/";
 }
 
 
