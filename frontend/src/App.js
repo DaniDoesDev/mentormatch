@@ -62,7 +62,7 @@ function mentorLogin({code}) {
     );
 
     // go to mentor home page
-    // return window.location.href="http://localhost:3000/mentorHomePage";
+    return window.location.href="http://localhost:3000/mentorHomePage";
 }
 
 function menteeLogin({code}) {
@@ -112,7 +112,7 @@ function menteeLogin({code}) {
     );
     
     // go to mentee home page
-    // return window.location.href="http://localhost:3000/menteeHomePage";
+    return window.location.href="http://localhost:3000/menteeHomePage";
 }
 
 export default function App() {
@@ -152,19 +152,6 @@ export default function App() {
     onSuccess={menteeLogin}
     onFailure={onFailureMentor}/>
 
-        <p></p>
-        {/* This doesn't really do anything  */}
-        {/* <button onClick={mentorLogin} className="btn">I'm a mentor!</button> */}
-        <Link to="/mentorJobDetails"><button className="btn">
-           I'm a mentor!
-         </button>
-         </Link>
-        <p></p>
-        {/* <button onClick={menteeLogin} className="btn">I'm a mentee!</button> */}
-        <Link to="/menteeInterestPage"><button className="btn">
-           I'm a Mentee!
-         </button>
-         </Link>
       </header>
     </div>
   );
