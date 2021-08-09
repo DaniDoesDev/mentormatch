@@ -1,10 +1,52 @@
-from rest_framework import generics
+from rest_framework import viewsets
+from rest_framework.response import Response
 
-from . import models
-from . import serializers
+from .models import Mentor, Mentee
+from .serializers import MentorSerializer, MenteeSerializer
+from django.shortcuts import get_list_or_404, get_object_or_404
 
 
-class ListMentor(generics.ListCreateAPIView):
-    queryset = models.Mentor.objects.all()
-    serializer_class = serializers.MentorSerializer
+class ListMentor(viewsets.ModelViewSet):
+    queryset = Mentor.objects.all()
+    serializer_class = MentorSerializer 
+
+    def querymentor(self, request, email=None):
+        if email:
+            mentee = get_object_or_404(Mentee, email=email)
+            mentor_id = mentee.mentor_id
+            mentor = Mentor.objects.filter(id=mentor_id)
+            serializer = self.get_serializer(mentor, many=True)
+            return Response(serializer.data)
+        else:
+            mentors = Mentor.objects.all()
+            serializer = self.get_serializer(mentors, many=True)
+            return Response(serializer.data)
+
+class ListMentee(viewsets.ModelViewSet):
+    queryset = Mentee.objects.all()
+    serializer_class = MenteeSerializer
+ 
+    def querymentee(self, request, email=None):
+        if email:
+            mentor = Mentor.objects.filter(email=email)
+            mentees = []
+            if mentor.exists():
+                for m in mentor:
+                    temps = Mentee.objects.filter(interested_company=m.company)
+                    max_num = m.initial_num_mentee
+                    num = 0
+                    for t in temps:
+                        if not t.mentor_id:
+                            if num >= max_num:
+                                break
+                            mentees.append(t)
+                            t.mentor_id = m.id
+                            t.save()
+                            num = num + 1
+            serializer = self.get_serializer(mentees, many=True)
+            return Response(serializer.data)
+        else:
+            mentees = Mentee.objects.all()
+            serializer = self.get_serializer(mentees, many=True)
+            return Response(serializer.data)
 

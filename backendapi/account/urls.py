@@ -1,8 +1,14 @@
+from django.urls import path, include
 from rest_framework import routers
-from .api import MentorViewSet, MenteeViewSet
+
+from . import views
 
 router = routers.DefaultRouter()
-router.register('api/mentor', MentorViewSet, 'mentor')
-router.register('api/mentee', MenteeViewSet, 'mentee')
+router.register('api/mentor', views.ListMentor, 'mentor')
+router.register('api/mentee', views.ListMentee, 'mentee')
 
-urlpatterns = router.urls
+urlpatterns = [
+    path('', include(router.urls)),
+    path('api/menteematch/<email>/', views.ListMentee.as_view({'get': 'querymentee'})),
+    path('api/mentormatch/<email>/', views.ListMentor.as_view({'get': 'querymentor'})),
+]
