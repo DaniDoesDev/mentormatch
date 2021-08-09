@@ -1,10 +1,10 @@
-# Getting Started with Create React App
+# Mentor Me
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [Django React tutorial](https://wsvincent.com/django-rest-framework-react-tutorial/).
 
 ## Available Scripts
 
-First, install packages inside `server` and `frontend` folders:
+1. First, install packages inside `server` and `frontend` folders:
 
 ### `npm install`
 
@@ -46,7 +46,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 
-Then, in backend server, run: 
+2. Then, in backend server, run: 
 
  `cd backendapi`
  
