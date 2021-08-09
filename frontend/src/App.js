@@ -89,7 +89,7 @@ function menteeLogin({code}) {
     // console.log(user.name);
     
     // go to mentee home page
-    // return window.location.href="http://localhost:3000/menteeHomePage";
+    return window.location.href="http://localhost:3000/menteeHomePage";
 }
 
 export default function App() {
