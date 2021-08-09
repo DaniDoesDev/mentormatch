@@ -10,9 +10,9 @@ class ListMentor(viewsets.ModelViewSet):
     queryset = Mentor.objects.all()
     serializer_class = MentorSerializer 
 
-    def querymentor(self, request, email=None):
-        if email:
-            mentee = get_object_or_404(Mentee, email=email)
+    def querymentor(self, request, name=None):
+        if name:
+            mentee = get_object_or_404(Mentee, name=name)
             mentor_id = mentee.mentor_id
             mentor = Mentor.objects.filter(id=mentor_id)
             serializer = self.get_serializer(mentor, many=True)
@@ -26,14 +26,16 @@ class ListMentee(viewsets.ModelViewSet):
     queryset = Mentee.objects.all()
     serializer_class = MenteeSerializer
  
-    def querymentee(self, request, email=None):
-        if email:
-            mentor = Mentor.objects.filter(email=email)
+    def querymentee(self, request, name=None):
+        if name:
+            mentor = Mentor.objects.filter(name=name)
             mentees = []
             if mentor.exists():
                 for m in mentor:
                     temps = Mentee.objects.filter(interested_company=m.company)
                     max_num = m.initial_num_mentee
+                    if not max_num:
+                      max_num = 5
                     num = 0
                     for t in temps:
                         if not t.mentor_id:

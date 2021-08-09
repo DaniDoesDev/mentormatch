@@ -9,6 +9,6 @@ router.register('api/mentee', views.ListMentee, 'mentee')
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('api/menteematch/<email>/', views.ListMentee.as_view({'get': 'querymentee'})),
-    path('api/mentormatch/<email>/', views.ListMentor.as_view({'get': 'querymentor'})),
+    path('api/menteematch/<name>/', views.ListMentee.as_view({'get': 'querymentee'})),
+    path('api/mentormatch/<name>/', views.ListMentor.as_view({'get': 'querymentor'})),
 ]
