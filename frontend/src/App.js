@@ -78,14 +78,26 @@ function mentorLogin({code}) {
     .then(res => res.json())
     .then((data) => { // this is the user object returned by github's api
       user = data;    // set global user 
-    });
-
-    // make get or post requests here to do stuff in db (store user info.)
-    // fetch('http://127.0.0.1:8000/api/mentor/', {
-    //   method = 'POST',
-      
-    // });
-    // console.log(user.name);
+      return data
+    })
+    .then((data) => {// make get or post requests here to do stuff in db (store user info.)
+    if (data.email == null) {
+      data.email = data.login + "@gmail.com";
+    }
+    const userData = {
+      name: data.name,
+      email: data.email,
+      company: data.company
+    };
+    fetch('http://127.0.0.1:8000/api/mentor/', {
+      method: 'POST',
+      body: JSON.stringify(userData),
+      headers: {
+        'content-type': 'application/json',
+      },
+      });
+    }
+    );
 
     // go to mentor home page
     return window.location.href="http://localhost:3000/mentorHomePage";
@@ -156,15 +168,26 @@ function menteeLogin({code}) {
     .then(res => res.json())
     .then((data) => { // this is the user object returned by github's api
       user = data;    // set global user 
-    });
-
-    console.log(user);
-    // REMOVE ANY CONSOLE.LOG statements AFTER DEBUGGING IS OVER
-    // --> (it makes you reload the page again to go the next page instead)
-
-    // make get or post requests here to do stuff in db (store user info.)
-
-    // console.log(user.name);
+      return data;
+    })
+    .then((data) => {// make get or post requests here to do stuff in db (store user info.)
+    if (data.email == null) {
+      data.email = data.login + "@gmail.com";
+    }
+    const userData = {
+      name: data.name,
+      email: data.email,
+      interested_company: data.company
+    };
+    fetch('http://127.0.0.1:8000/api/mentee/', {
+      method: 'POST',
+      body: JSON.stringify(userData),
+      headers: {
+        'content-type': 'application/json',
+      },
+      });
+    }
+    );
     
     // go to mentee home page
     return window.location.href="http://localhost:3000/menteeHomePage";
@@ -235,19 +258,6 @@ export default function App() {
     onSuccess={menteeLogin}
     onFailure={onFailureMentor}/>
 
-        <p></p>
-        {/* This doesn't really do anything  */}
-        {/* <button onClick={mentorLogin} className="btn">I'm a mentor!</button> */}
-        {/* <Link to="/mentorJobDetails"><button className="btn">
-           I'm a mentor!
-         </button>
-         </Link>
-        <p></p> */}
-        {/* <button onClick={menteeLogin} className="btn">I'm a mentee!</button> */}
-        {/* <Link to="/menteeInterestPage"><button className="btn">
-           I'm a Mentee!
-         </button>
-         </Link> */}
       </header>
     </div>
   );
