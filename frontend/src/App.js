@@ -201,6 +201,7 @@ export default function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <h1>Mentor Me</h1>
         <img src={mentorPic} className="App-logo" alt="logo" />
         <p>
           The best way to connect with mentors. See yourself in your dream job today! 
