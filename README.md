@@ -45,14 +45,20 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-In backend server, run: 
+
+Then, in backend server, run: 
+
  `cd backendapi`
  
-`pipenv install django`
+### `pipenv install django`
 
-`pipenv shell`
+### `pipenv shell`
 
-`./manage.py runserver` or `python manage.py runserver`
+### `python manage.py makemigrations`
+
+### `python manage.py migrate`
+
+### `python manage.py runserver`
 
 
 
