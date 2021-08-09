@@ -52,7 +52,7 @@ import axios from 'axios';
                 <div className="MentorHomePage">
                 <p>Here are your current matched mentees and their contact info.</p><p> Be a guiding light for a young woman on her STEM journey!</p>   
                 <ul>
-                { this.state.persons.slice(0,4).map(person => <p><p>{person.name}<p></p>{person.email}<p></p>{person.phone}</p>---</p>)}
+                { this.state.persons.slice(1,5).map(person => <p><p>{person.name}<p></p>{person.email}<p></p>{person.phone}</p>---</p>)}
                 {/* { this.state.persons.slice(0,4).map(person => <p>{person.email}</p>)}
                 { this.state.persons.slice(0,4).map(person => <p>{person.phone}</p>)} */}
                 </ul>
