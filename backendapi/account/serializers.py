@@ -6,3 +6,8 @@ class MentorSerializer(serializers.ModelSerializer):
   class Meta:
     model = Mentor
     fields = '__all__'
+
+class MenteeSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Mentee
+    fields = '__all__'

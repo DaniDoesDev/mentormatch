@@ -1,6 +1,6 @@
-from account.models import Mentor
+from account.models import Mentor, Mentee
 from rest_framework import viewsets, permissions
-from .serializers import MentorSerializer
+from .serializers import MentorSerializer, MenteeSerializer
 
 # Mentor viewset
 class MentorViewSet(viewsets.ModelViewSet):
@@ -9,3 +9,11 @@ class MentorViewSet(viewsets.ModelViewSet):
     permissions.AllowAny
   ]
   serializer_class = MentorSerializer
+
+# Mentor viewset
+class MenteeViewSet(viewsets.ModelViewSet):
+  queryset = Mentee.objects.all()
+  permission_classes = [
+    permissions.AllowAny
+  ]
+  serializer_class = MenteeSerializer
