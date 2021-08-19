@@ -1,4 +1,4 @@
-# Mentor Me
+# Mentor Match
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [Django React tutorial](https://wsvincent.com/django-rest-framework-react-tutorial/).
 
